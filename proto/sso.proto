@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package auth;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "sso.v1;ssov1";
+
+service Auth {
+    rpc Register (RegisterRequest) returns (RegisterResponse);
+    rpc InviteRegister (InviteRegisterRequest) returns (InviteRegisterResponse);
+    rpc Login (LoginRequest) returns (LoginResponse);
+}
+
+message RegisterRequest {
+    string email = 1;
+    string firstname = 2;
+    string lastname = 3;
+    string password = 4;
+}
+
+message RegisterResponse {
+    string id = 1;
+    string firstname = 2;
+    string lastname = 3;
+    string password = 4;
+    google.protobuf.Timestamp created_at = 5; 
+}
+
+message InviteRegisterRequest {
+    string email = 1;
+    string firstname = 2;
+    string lastname = 3;
+    string password = 4;
+    string company_id = 5;
+}
+
+message InviteRegisterResponse {
+    string id = 1;
+    string firstname = 2;
+    string lastname = 3;
+    string password = 4;
+    string company_id = 5;
+    google.protobuf.Timestamp created_at = 6; 
+}
+
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+    int32 service_id = 3;
+}
+
+message LoginResponse {
+    string token = 1;
+}
