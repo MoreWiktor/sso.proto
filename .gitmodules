@@ -7,6 +7,3 @@
 [submodule "ts.sso.proto"]
 	path = ts
 	url = https://github.com/MoreWiktor/ts.sso.proto
-[submodule "web-client.sso.proto"]
-	path = web
-	url = https://github.com/MoreWiktor/web-client.sso.proto

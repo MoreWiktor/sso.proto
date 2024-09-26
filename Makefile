@@ -7,9 +7,5 @@ gen-go:
 	echo "GO files is generated"
 
 gen-ts:
-	protoc -I contract contract/**/*.proto --ts_out=import_style=commonjs,binary:./ts --ts_opt=paths=source_relative
+	protoc -I contract contract/**/*.proto --ts_out=import_style=commonjs,binary:./ts --ts_opt=paths=source_relative --grpc-web_out=import_style=typescript,mode=grpcwebtext:./ts
 	echo "TS files is generated"
-
-gen-web:
-	protoc -I contract contract/**/*.proto --grpc-web_out=import_style=typescript,mode=grpcwebtext:./web
-	echo "Web TS files is generated"
